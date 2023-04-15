@@ -1,7 +1,11 @@
+h1 {
+    text-align: center;
+}
+
 .grid {
     margin: 0 auto;
     margin-top: 1em;
-    width: 480;
+    width: 320;
     height: 480;
     display: flex;
     flex-wrap: wrap;
@@ -21,16 +25,16 @@
 }
 
 .ocean {
-    background-color: rgb(0, 0, 255, .4);
+    background-color: rgb(0, 0, 255, .3);
     border-radius: 4px;
 }
 
 .earth {
-    background-color: rgb(0, 128, 0, .4);
+    background-color: rgb(0, 128, 0, .3);
     border-radius: 4px;
 }
 
 .beach {
-    background-color: rgba(128, 124, 0, 0.4);
+    background-color: rgba(128, 124, 0, 0.3);
     border-radius: 4px;
 }
