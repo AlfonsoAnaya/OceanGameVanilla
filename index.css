@@ -5,7 +5,7 @@ h1 {
 .grid {
     margin: 0 auto;
     margin-top: 1em;
-    width: 320;
+    width: 280;
     height: 480;
     display: flex;
     flex-wrap: wrap;
@@ -36,5 +36,10 @@ h1 {
 
 .beach {
     background-color: rgba(128, 124, 0, 0.3);
+    border-radius: 4px;
+}
+
+.house {
+    background-color: rgb(0, 128, 0, .3);
     border-radius: 4px;
 }

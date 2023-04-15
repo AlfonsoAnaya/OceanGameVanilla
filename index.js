@@ -5,20 +5,21 @@ let gridWidth = 12;
 let ocean = "🌊";
 let earth = "🌳";
 let beach = "🏖️";
+let house = "🏠";
 
 const layout = [
-    0,0,0,1,1,1,1,1,
-    0,0,2,1,1,1,1,1,
-    0,0,2,1,1,1,1,1,
-    0,2,2,1,1,1,1,1,
-    0,0,1,1,1,1,1,1,
-    0,0,0,1,1,1,1,1,
-    0,0,1,1,1,1,1,1,
-    0,0,0,0,0,1,1,1,
-    0,0,0,2,2,1,1,1,
-    0,0,2,2,1,1,1,1,
-    0,2,2,1,1,1,1,1,
-    0,0,1,1,1,1,1,1,
+    0,0,0,1,1,1,1,
+    0,0,2,1,1,3,1,
+    0,0,2,1,1,1,1,
+    0,2,2,1,1,1,1,
+    0,0,1,1,1,1,1,
+    0,0,0,1,1,1,1,
+    0,0,1,1,1,1,1,
+    0,0,0,0,0,1,1,
+    0,0,0,2,2,1,1,
+    0,0,2,2,1,1,1,
+    0,2,2,1,1,3,1,
+    0,0,1,1,1,1,1,
 ]
 
 function createBoard() {
@@ -36,7 +37,8 @@ function createBoard() {
         square.classList.add('beach');
         square.textContent = beach;
       } else if (item===3) {
-        square.classList.add('power-pellet')
+        square.classList.add('house');
+        square.textContent = house;
       } else {
         square.classList.add('empty')
       }
