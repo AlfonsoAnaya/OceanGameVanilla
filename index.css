@@ -1,3 +1,8 @@
+body {
+    margin: 0;
+    color: rgb(243, 235, 235);
+}
+
 h1 {
     text-align: center;
 }
@@ -29,7 +34,7 @@ h1 {
     border-radius: 4px;
 }
 
-.earth {
+.tree {
     background-color: rgb(0, 128, 0, .3);
     border-radius: 4px;
 }
@@ -47,4 +52,31 @@ h1 {
 .border {
     background-color: rgb(0, 0, 255, .8);
     border-radius: 4px;
+}
+
+.btn {
+    margin: 0 auto;
+    margin-top: 1em;
+    justify-self: center;
+    padding: 1em 2.5em;
+    display: block;
+}
+
+.btn {
+    padding: .75em 1.5em;
+    border: 2px solid transparent;
+    border-radius: 1em;
+    background-color: rgb(111, 111, 229);
+    color: rgb(243, 235, 235);
+    font-weight: 700;
+    font-size: 1em;
+    transition: ease-in .15s;
+}
+
+.btn:hover {
+    cursor: pointer;
+    color: rgb(111, 111, 229);
+    background-color: rgb(243, 235, 235);
+    border: solid 2px rgb(111, 111, 229);
+    transform: scale(1.05)
 }
