@@ -17,20 +17,18 @@ let beach = "🏖️";
 let house = "🏠";
 let wall = "🧱";
 
-
-
 const layout = [
   0, 0, 0, 1, 1, 1, 1,
   0, 0, 2, 1, 1, 3, 1,
   0, 0, 2, 1, 1, 1, 1,
-  0, 2, 2, 1, 1, 1, 1,
+  0, 2, 1, 1, 1, 1, 1,
   0, 0, 1, 1, 1, 1, 1,
   0, 0, 0, 1, 1, 1, 1,
   0, 0, 1, 1, 1, 1, 1,
   0, 0, 0, 0, 0, 1, 1,
-  0, 0, 0, 2, 2, 1, 1,
-  0, 0, 2, 2, 1, 1, 1,
-  0, 2, 2, 1, 1, 3, 1,
+  0, 0, 0, 2, 1, 1, 1,
+  0, 0, 2, 1, 1, 1, 1,
+  0, 2, 1, 1, 1, 3, 1,
   0, 0, 1, 1, 1, 1, 1,
 ]
 
@@ -103,6 +101,14 @@ function findBorder() {
 findBorder();
 
 function oceanAttack() {
+  accumulator = 0;
+  for (square of squares) {
+    if (square.classList.contains('beach')) accumulator++;
+  }
+  accumulator = accumulator/2
+  for (let i=0; i<accumulator; i++) {
+    money.push(coin);
+  }
   let attackSelection = [];
   for (let i=0; i<5; i++) {
     attackSelection.push(border[Math.floor(Math.random() * border.length)])
@@ -158,9 +164,6 @@ function oceanAttack() {
   date.textContent = year;
   money.push(coin);
   money.push(coin);
-  for (square of squares) {
-    if (square.classList.contains('beach')) money.push(coin);
-  }
   resources.textContent = money.join(" ");
 }
 
