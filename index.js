@@ -1,15 +1,23 @@
 const grid = document.getElementById("grid");
-const attackBtn = document.getElementById('attack-btn')
+const resources = document.getElementById("resources");
+const date = document.getElementById('year');
+const attackBtn = document.getElementById('attack-btn');
 
 let squares = [];
 let border = [];
 let gridWidth = 7;
 let gridHeight = 12;
+let year = 2023;
+let coin = "🪙";
+let money = [coin, coin, coin];
 
 let ocean = "🌊";
 let tree = "🌳";
 let beach = "🏖️";
 let house = "🏠";
+let wall = "🧱";
+
+
 
 const layout = [
   0, 0, 0, 1, 1, 1, 1,
@@ -27,6 +35,10 @@ const layout = [
 ]
 
 function createBoard() {
+  resources.textContent = money.join(" ");
+  date.textContent = year;
+
+  //set up grid
   for (let i = 0; i < layout.length; i++) {
     const square = document.createElement('div');
     square.setAttribute('id', i);
@@ -50,10 +62,11 @@ function createBoard() {
   }
 }
 createBoard();
+squareListeners();
 
 
 function findBorder() {
-  for (square of border) {square.classList.remove('border') };
+  for (square of border) { square.classList.remove('border') };
   border = [];
   for (square of squares) {
     let id = parseInt(square.id);
@@ -90,7 +103,12 @@ function findBorder() {
 findBorder();
 
 function oceanAttack() {
-  for (square of border) {
+  let attackSelection = [];
+  for (let i=0; i<5; i++) {
+    attackSelection.push(border[Math.floor(Math.random() * border.length)])
+  }
+  console.log(attackSelection);
+  for (square of attackSelection) {
     let attackPossibilities = [];
     let id = parseInt(square.id);
     //select attack squares
@@ -113,10 +131,9 @@ function oceanAttack() {
     if (attackPossibilities.length === 0) continue;
     let attackedSquare = attackPossibilities[Math.floor(Math.random() * attackPossibilities.length)];
     //if wins coin toss then attacked square downgrades house -> tree -> beach -> ocean}
-    console.log(attackPossibilities);
-    console.log(attackedSquare);
     let randomNum = Math.random();
     if (randomNum >= .5) {
+      console.log('successful attack')
       if (attackedSquare.classList.contains('house')) {
         attackedSquare.classList.remove('house');
         attackedSquare.classList.add('tree');
@@ -129,10 +146,44 @@ function oceanAttack() {
         attackedSquare.classList.remove('beach');
         attackedSquare.classList.add('ocean');
         attackedSquare.textContent = ocean;
+      } else if  (attackedSquare.classList.contains('wall')) {
+        attackedSquare.classList.remove('wall');
+        attackedSquare.classList.add('tree');
+        attackedSquare.textContent = tree;
       }
     }
   }
   findBorder();
+  year ++;
+  date.textContent = year;
+  money.push(coin);
+  money.push(coin);
+  for (square of squares) {
+    if (square.classList.contains('beach')) money.push(coin);
+  }
+  resources.textContent = money.join(" ");
 }
 
-attackBtn.addEventListener("click", ()=> oceanAttack())
+function squareListeners() {
+  for (square of squares) {
+    square.addEventListener("click", function (e) {
+      upgradeSquare(this);
+    });
+  }
+}
+
+function upgradeSquare(square) {
+  money.pop();
+  resources.textContent = money.join(" ");
+  if (square.classList.contains('beach')) {
+    square.classList.remove('beach');
+    square.classList.add('tree');
+    square.textContent = tree;
+  } else if (square.classList.contains('tree')) {
+    square.classList.remove('tree');
+    square.classList.add('wall');
+    square.textContent = wall;
+  } 
+}
+
+attackBtn.addEventListener("click", () => oceanAttack())

@@ -4,13 +4,25 @@ body {
 }
 
 h1 {
+    margin: 0;
     text-align: center;
     color: rgb(111, 111, 229);
+    margin-bottom: .5em;
+}
+
+.scoreboard {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    gap: 2em;
+}
+
+.scoreboard > p {
+    margin: 0;
 }
 
 .grid {
     margin: 0 auto;
-    margin-top: 1em;
     width: 280;
     height: 480;
     display: flex;
@@ -40,6 +52,11 @@ h1 {
     border-radius: 4px;
 }
 
+.wall {
+    background-color: rgb(0, 128, 0, .3);
+    border-radius: 4px;
+}
+
 .beach {
     background-color: rgba(128, 124, 0, 0.3);
     border-radius: 4px;
@@ -51,7 +68,6 @@ h1 {
 }
 
 .border {
-    background-color: rgb(0, 0, 255, .8);
     border-radius: 4px;
 }
 
