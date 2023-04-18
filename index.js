@@ -1,3 +1,5 @@
+import { calculateBeachRewards } from "./utils/calculateBeachRewards.js";
+
 const grid = document.getElementById("grid");
 const resources = document.getElementById("resources");
 const date = document.getElementById('year');
@@ -18,17 +20,17 @@ let house = "🏠";
 let wall = "🧱";
 
 const layout = [
+  0, 1, 1, 1, 1, 1, 1,
+  1, 1, 1, 1, 1, 3, 1,
+  0, 1, 1, 1, 1, 1, 1,
+  0, 0, 2, 1, 1, 1, 1,
+  0, 0, 2, 2, 1, 1, 1,
+  0, 0, 0, 0, 1, 1, 1,
+  0, 0, 0, 0, 1, 1, 1,
   0, 0, 0, 1, 1, 1, 1,
-  0, 0, 2, 1, 1, 3, 1,
   0, 0, 2, 1, 1, 1, 1,
   0, 2, 1, 1, 1, 1, 1,
-  0, 0, 1, 1, 1, 1, 1,
-  0, 0, 0, 1, 1, 1, 1,
-  0, 0, 1, 1, 1, 1, 1,
-  0, 0, 0, 0, 0, 1, 1,
-  0, 0, 0, 2, 1, 1, 1,
-  0, 0, 2, 1, 1, 1, 1,
-  0, 2, 1, 1, 1, 3, 1,
+  2, 1, 1, 1, 1, 3, 1,
   0, 0, 1, 1, 1, 1, 1,
 ]
 
@@ -60,13 +62,35 @@ function createBoard() {
   }
 }
 createBoard();
+
+function squareListeners() {
+  for (let square of squares) {
+    square.addEventListener("click", function (e) {
+      upgradeSquare(this);
+    });
+  }
+}
+
+function upgradeSquare(square) {
+  money.pop();
+  resources.textContent = money.join(" ");
+  if (square.classList.contains('beach')) {
+    square.classList.remove('beach');
+    square.classList.add('tree');
+    square.textContent = tree;
+  } else if (square.classList.contains('tree')) {
+    square.classList.remove('tree');
+    square.classList.add('wall');
+    square.textContent = wall;
+  } 
+}
 squareListeners();
 
 
 function findBorder() {
-  for (square of border) { square.classList.remove('border') };
+  for (let square of border) { square.classList.remove('border') };
   border = [];
-  for (square of squares) {
+  for (let square of squares) {
     let id = parseInt(square.id);
     if (square.classList.contains('ocean')) {
       //top 
@@ -93,7 +117,7 @@ function findBorder() {
 
     }
   }
-  for (square of border) {
+  for (let square of border) {
     square.classList.add('border');
   }
 }
@@ -101,20 +125,14 @@ function findBorder() {
 findBorder();
 
 function oceanAttack() {
-  accumulator = 0;
-  for (square of squares) {
-    if (square.classList.contains('beach')) accumulator++;
-  }
-  accumulator = accumulator/2
-  for (let i=0; i<accumulator; i++) {
-    money.push(coin);
-  }
+  calculateBeachRewards(squares, money, coin)
+
   let attackSelection = [];
   for (let i=0; i<5; i++) {
     attackSelection.push(border[Math.floor(Math.random() * border.length)])
   }
-  console.log(attackSelection);
-  for (square of attackSelection) {
+
+  for (let square of attackSelection) {
     let attackPossibilities = [];
     let id = parseInt(square.id);
     //select attack squares
@@ -163,30 +181,7 @@ function oceanAttack() {
   year ++;
   date.textContent = year;
   money.push(coin);
-  money.push(coin);
   resources.textContent = money.join(" ");
-}
-
-function squareListeners() {
-  for (square of squares) {
-    square.addEventListener("click", function (e) {
-      upgradeSquare(this);
-    });
-  }
-}
-
-function upgradeSquare(square) {
-  money.pop();
-  resources.textContent = money.join(" ");
-  if (square.classList.contains('beach')) {
-    square.classList.remove('beach');
-    square.classList.add('tree');
-    square.textContent = tree;
-  } else if (square.classList.contains('tree')) {
-    square.classList.remove('tree');
-    square.classList.add('wall');
-    square.textContent = wall;
-  } 
 }
 
 attackBtn.addEventListener("click", () => oceanAttack())
