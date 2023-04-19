@@ -1,4 +1,6 @@
 import { calculateBeachRewards } from "./utils/calculateBeachRewards.js";
+import { upgradeSquareListeners } from "./utils/squareListeners.js";
+import { findBorder } from "./utils/findBorder.js";
 
 const grid = document.getElementById("grid");
 const resources = document.getElementById("resources");
@@ -62,69 +64,10 @@ function createBoard() {
   }
 }
 createBoard();
+upgradeSquareListeners(squares, money, wall, tree);
+findBorder(border, squares, gridWidth, gridHeight);
 
-function squareListeners() {
-  for (let square of squares) {
-    square.addEventListener("click", function (e) {
-      upgradeSquare(this);
-    });
-  }
-}
-
-function upgradeSquare(square) {
-  money.pop();
-  resources.textContent = money.join(" ");
-  if (square.classList.contains('beach')) {
-    square.classList.remove('beach');
-    square.classList.add('tree');
-    square.textContent = tree;
-  } else if (square.classList.contains('tree')) {
-    square.classList.remove('tree');
-    square.classList.add('wall');
-    square.textContent = wall;
-  } 
-}
-squareListeners();
-
-
-function findBorder() {
-  for (let square of border) { square.classList.remove('border') };
-  border = [];
-  for (let square of squares) {
-    let id = parseInt(square.id);
-    if (square.classList.contains('ocean')) {
-      //top 
-      if (square.id >= 0 && square.id < gridWidth) {
-        if (!squares[id + 1].classList.contains('ocean')
-          || !squares[id + gridWidth].classList.contains('ocean')) border.push(square);
-      }
-      //check for land 
-
-      //bottom      
-      if (square.id >= (gridWidth * gridHeight) - gridWidth && square.id < (gridWidth * gridHeight)) {
-        //check for land 
-        if (!squares[id + 1].classList.contains('ocean')
-          || !squares[id - gridWidth].classList.contains('ocean')) border.push(square);
-      }
-
-      //center
-      if (square.id >= gridWidth && square.id < gridWidth * gridHeight - gridWidth) {
-        //check for land 
-        if (!squares[id + 1].classList.contains('ocean')
-          || !squares[id - gridWidth].classList.contains('ocean')
-          || !squares[id + gridWidth].classList.contains('ocean')) border.push(square);
-      }
-
-    }
-  }
-  for (let square of border) {
-    square.classList.add('border');
-  }
-}
-
-findBorder();
-
-function oceanAttack() {
+function seasonUnfold() {
   calculateBeachRewards(squares, money, coin)
 
   let attackSelection = [];
@@ -184,4 +127,4 @@ function oceanAttack() {
   resources.textContent = money.join(" ");
 }
 
-attackBtn.addEventListener("click", () => oceanAttack())
+attackBtn.addEventListener("click", () => seasonUnfold())
