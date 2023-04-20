@@ -1,4 +1,6 @@
-export function findBorder(border, squares, gridWidth, gridHeight) {
+let border = [];
+
+function findBorder(squares, gridWidth, gridHeight) {
     for (let square of border) { square.classList.remove('border') };
     border = [];
     for (let square of squares) {
@@ -7,7 +9,9 @@ export function findBorder(border, squares, gridWidth, gridHeight) {
         //top 
         if (square.id >= 0 && square.id < gridWidth) {
           if (!squares[id + 1].classList.contains('ocean')
-            || !squares[id + gridWidth].classList.contains('ocean')) border.push(square);
+            || !squares[id + gridWidth].classList.contains('ocean')) {
+              border.push(square);
+            }
         }
         //check for land 
         //bottom      
@@ -28,4 +32,7 @@ export function findBorder(border, squares, gridWidth, gridHeight) {
     for (let square of border) {
       square.classList.add('border');
     }
+    console.log(border);
   }
+
+  export {border, findBorder};
