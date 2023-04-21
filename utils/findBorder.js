@@ -32,7 +32,6 @@ function findBorder(squares, gridWidth, gridHeight) {
     for (let square of border) {
       square.classList.add('border');
     }
-    console.log(border);
   }
 
   export {border, findBorder};

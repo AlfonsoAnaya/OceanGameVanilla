@@ -1,4 +1,4 @@
-export function upgradeSquareListeners(squares, money, wall, tree) {
+export function upgradeSquareListeners(squares, money, wall, tree, crane) {
     for (let square of squares) {
         square.addEventListener("click", function (e) {
             if (square.classList.contains('beach')) {
@@ -13,7 +13,14 @@ export function upgradeSquareListeners(squares, money, wall, tree) {
                 square.classList.remove('tree');
                 square.classList.add('wall');
                 square.textContent = wall;
+            } else if (square.classList.contains('wall')) {
+                money.pop();
+                resources.textContent = money.join(" ");
+                square.classList.remove('wall');
+                square.classList.add('crane');
+                square.textContent = crane;
             }
+
         });
     }
 }

@@ -31,7 +31,7 @@ h1 {
     border-radius: 4px;
 }
 
-.grid > div {
+.square {
     width: 40px;
     height: 40px;
     border: .5px solid white;
@@ -47,23 +47,17 @@ h1 {
     border-radius: 4px;
 }
 
-.tree {
+.ocean-attack {
+    border: solid red 2px;
+}
+
+.tree, .wall, .house {
     background-color: rgb(0, 128, 0, .3);
     border-radius: 4px;
 }
 
-.wall {
-    background-color: rgb(0, 128, 0, .3);
-    border-radius: 4px;
-}
-
-.beach {
-    background-color: rgba(128, 124, 0, 0.3);
-    border-radius: 4px;
-}
-
-.house {
-    background-color: rgb(0, 128, 0, .3);
+.beach, .crane {
+    background-color: rgba(128, 124, 0, 0.15);
     border-radius: 4px;
 }
 

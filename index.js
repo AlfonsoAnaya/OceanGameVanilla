@@ -18,6 +18,7 @@ let tree = "🌳";
 let beach = "🏖️";
 let house = "🏠";
 let wall = "🧱";
+let crane = "🏗️";
 
 const layout = [
   0, 1, 1, 1, 1, 1, 1,
@@ -42,6 +43,7 @@ function createBoard() {
   for (let i = 0; i < layout.length; i++) {
     const square = document.createElement('div');
     square.setAttribute('id', i);
+    square.setAttribute('class', "square");
     grid.appendChild(square);
     squares.push(square);
     if (layout[i] === 0) {
@@ -62,7 +64,7 @@ function createBoard() {
   }
 }
 createBoard();
-upgradeSquareListeners(squares, money, wall, tree);
+upgradeSquareListeners(squares, money, wall, tree, crane);
 
 attackBtn.addEventListener("click", () => seasonUnfold(
   squares, 
@@ -70,8 +72,9 @@ attackBtn.addEventListener("click", () => seasonUnfold(
   coin, 
   tree, 
   beach, 
-  ocean,  
+  ocean,
+  wall,  
   gridWidth,
   gridHeight, 
   year, 
-  date))
+  date));
