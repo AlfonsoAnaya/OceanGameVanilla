@@ -3,21 +3,31 @@ import { border, findBorder } from "./findBorder.js";
 import { executeAttack } from "./executeAttack.js";
 
 let year = 2023;
-
+let isHurricaneYear = false;
 
 function seasonUnfold(squares, money, coin, tree, beach, ocean, wall, gridWidth, gridHeight, date, resources) {
   console.log('begin season')
+  let attackSelection = [];
   calculateBeachRewards(squares, money, coin);
 
   findBorder(squares, gridWidth, gridHeight);
 
-  let attackSelection = [];
-  for (let i = 0; i < 5; i++) {
-    let randomNum = Math.random();
-    if (randomNum >= .5) {
-      attackSelection.push(border[Math.floor(Math.random() * border.length)]);
+  let dangerIndex = .4 + (Math.floor((year-2000)/10)/30)
+  if (Math.random() <= dangerIndex/10) isHurricaneYear = true;
+  
+  if (isHurricaneYear) {
+    alert('hurricane year');
+    attackSelection = border;
+  } else {
+      for (let i = 0; i < 5; i++) {
+        let randomNum = Math.random();
+        if (randomNum <= dangerIndex) {
+          attackSelection.push(border[Math.floor(Math.random() * border.length)]);
+        }
+      }
     }
-  }
+  
+  
 
   for (let i = 0; i < attackSelection.length; i++) {
     let attackPossibilities = [];
@@ -42,7 +52,6 @@ function seasonUnfold(squares, money, coin, tree, beach, ocean, wall, gridWidth,
     }
     if (attackPossibilities.length === 0) continue;
     let attackedSquare = attackPossibilities[Math.floor(Math.random() * attackPossibilities.length)];
-    //if wins coin toss then attacked square downgrades house -> tree -> beach -> ocean}
 
     squares[id].classList.add('ocean-attack');
 
