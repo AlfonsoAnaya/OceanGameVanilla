@@ -2,10 +2,15 @@ import { calculateBeachRewards } from "./calculateBeachRewards.js"
 import { border, findBorder } from "./findBorder.js";
 import { executeAttack } from "./executeAttack.js";
 
+let year = 2023;
 
-export function seasonUnfold(squares, money, coin, tree, beach, ocean, wall, gridWidth, gridHeight, year, date) {
+
+function seasonUnfold(squares, money, coin, tree, beach, ocean, wall, gridWidth, gridHeight, date, resources) {
+  console.log('begin season')
   calculateBeachRewards(squares, money, coin);
+
   findBorder(squares, gridWidth, gridHeight);
+
   let attackSelection = [];
   for (let i = 0; i < 5; i++) {
     let randomNum = Math.random();
@@ -49,3 +54,5 @@ export function seasonUnfold(squares, money, coin, tree, beach, ocean, wall, gri
   money.push(coin);
   resources.textContent = money.join(" ");
 }
+
+export {seasonUnfold, year}

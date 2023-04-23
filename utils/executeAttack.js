@@ -17,8 +17,8 @@ export function executeAttack(tree, beach, ocean, wall, attackedSquare, squares,
       attackedSquare.textContent = tree;
     } else if (attackedSquare.classList.contains('crane')) {
         attackedSquare.classList.remove('crane');
-        attackedSquare.classList.add('wall');
-        attackedSquare.textContent = wall;
+        attackedSquare.classList.add('beach');
+        attackedSquare.textContent = beach;
       }
     squares[id].classList.remove('ocean-attack');
   }

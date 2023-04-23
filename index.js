@@ -1,5 +1,7 @@
 import { upgradeSquareListeners } from "./utils/squareListeners.js";
-import { seasonUnfold } from "./utils/seasonUnfold.js";
+import { seasonUnfold, year } from "./utils/seasonUnfold.js";
+import { reconstruct } from "./utils/reconstruct.js";
+
 
 const grid = document.getElementById("grid");
 const resources = document.getElementById("resources");
@@ -9,7 +11,6 @@ let squares = [];
 
 let gridWidth = 7;
 let gridHeight = 12;
-let year = 2023;
 let coin = "🪙";
 let money = [coin, coin, coin];
 
@@ -64,17 +65,49 @@ function createBoard() {
   }
 }
 createBoard();
-upgradeSquareListeners(squares, money, wall, tree, crane);
+upgradeSquareListeners(squares, money, wall, tree, crane, resources);
 
+/*
 attackBtn.addEventListener("click", () => seasonUnfold(
-  squares, 
-  money, 
-  coin, 
-  tree, 
-  beach, 
+  squares,
+  money,
+  coin,
+  tree,
+  beach,
   ocean,
-  wall,  
+  wall,
   gridWidth,
-  gridHeight, 
-  year, 
-  date));
+  gridHeight,
+  date,
+  resources
+));
+*/
+
+attackBtn.addEventListener('click', () => {
+  reconstruct(squares, beach, gridWidth);
+  setTimeout(seasonUnfold, 1000, 
+    squares,
+    money,
+    coin,
+    tree,
+    beach,
+    ocean,
+    wall,
+    gridWidth,
+    gridHeight,
+    date,
+    resources);
+  /*seasonUnfold(
+    squares,
+    money,
+    coin,
+    tree,
+    beach,
+    ocean,
+    wall,
+    gridWidth,
+    gridHeight,
+    date,
+    resources
+  );*/
+})

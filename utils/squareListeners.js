@@ -1,4 +1,4 @@
-export function upgradeSquareListeners(squares, money, wall, tree, crane) {
+export function upgradeSquareListeners(squares, money, wall, tree, crane, resources) {
     for (let square of squares) {
         square.addEventListener("click", function (e) {
             if (square.classList.contains('beach')) {
@@ -20,7 +20,6 @@ export function upgradeSquareListeners(squares, money, wall, tree, crane) {
                 square.classList.add('crane');
                 square.textContent = crane;
             }
-
         });
     }
 }
