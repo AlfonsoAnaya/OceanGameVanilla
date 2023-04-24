@@ -65,7 +65,7 @@ function createBoard() {
   }
 }
 createBoard();
-upgradeSquareListeners(squares, money, wall, tree, crane, resources);
+upgradeSquareListeners(squares, money, wall, tree, crane, resources, coin);
 
 /*
 attackBtn.addEventListener("click", () => seasonUnfold(
@@ -84,7 +84,7 @@ attackBtn.addEventListener("click", () => seasonUnfold(
 */
 
 attackBtn.addEventListener('click', () => {
-  reconstruct(squares, beach, gridWidth);
+  reconstruct(squares, beach, gridWidth, gridHeight);
   setTimeout(seasonUnfold, 1000, 
     squares,
     money,

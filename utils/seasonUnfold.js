@@ -12,14 +12,14 @@ function seasonUnfold(squares, money, coin, tree, beach, ocean, wall, gridWidth,
 
   findBorder(squares, gridWidth, gridHeight);
 
-  let dangerIndex = .4 + (Math.floor((year-2000)/10)/30)
-  if (Math.random() <= dangerIndex/10) isHurricaneYear = true;
-  
+  let dangerIndex = .5 + (Math.floor((year-2000)/10)/30)
+  if (Math.random() <= dangerIndex/5) isHurricaneYear = true;
+
   if (isHurricaneYear) {
     alert('hurricane year');
     attackSelection = border;
   } else {
-      for (let i = 0; i < 5; i++) {
+      for (let i = 0; i < 6; i++) {
         let randomNum = Math.random();
         if (randomNum <= dangerIndex) {
           attackSelection.push(border[Math.floor(Math.random() * border.length)]);
@@ -62,6 +62,7 @@ function seasonUnfold(squares, money, coin, tree, beach, ocean, wall, gridWidth,
   date.textContent = year;
   money.push(coin);
   resources.textContent = money.join(" ");
+  isHurricaneYear = false;
 }
 
 export {seasonUnfold, year}
