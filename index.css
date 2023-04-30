@@ -105,10 +105,10 @@ h1 {
 
 .ocean {
     animation:
-        stretch 3s linear 0s infinite none running;
+        swing 2s linear 0s infinite none running;
 }
 
-@keyframes stretch {
+@keyframes swing {
     0% {
         transform: translateX(0px)
     }
@@ -120,17 +120,3 @@ h1 {
         transform: translateX(0px)
     }
 }
-
-/*
-@keyframes stretch {
-    0% {
-      width: 37px;
-      margin-right: 3px;
-    }
-
-    100% {
-      width: 40px;
-      margin-right: 0px;
-    }
-  }
-*/
