@@ -1,6 +1,10 @@
 export function upgradeSquareListeners(squares, money, wall, tree, crane, resources, coin) {
     for (let square of squares) {
         square.addEventListener("click", function (e) {
+            if (money.length === 0) {
+                console.log('no money');
+                return;
+            }
             if (square.classList.contains('beach')) {
                 money.pop();
                 resources.textContent = money.join(" ");
