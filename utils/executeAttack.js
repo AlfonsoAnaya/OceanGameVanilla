@@ -1,4 +1,5 @@
 export function executeAttack(tree, beach, ocean, wall, attackedSquare, squares, id, attackSelection, i, attackBtn) {
+    attackedSquare.classList.add('new-ocean')
     if (attackedSquare.classList.contains('house')) {
       attackedSquare.classList.remove('house');
       attackedSquare.classList.add('tree');

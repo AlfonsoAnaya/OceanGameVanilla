@@ -19,7 +19,7 @@ function seasonUnfold(squares, money, coin, tree, beach, ocean, wall, gridWidth,
     alert('hurricane year');
     attackSelection = border;
   } else {
-      for (let i = 0; i < 1; i++) {
+      for (let i = 0; i < 6; i++) {
         let randomNum = Math.random();
         if (randomNum <= dangerIndex) {
           attackSelection.push(border[Math.floor(Math.random() * border.length)]);
