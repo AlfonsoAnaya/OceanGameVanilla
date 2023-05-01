@@ -5,7 +5,7 @@ import { executeAttack } from "./executeAttack.js";
 let year = 2023;
 let isHurricaneYear = false;
 
-function seasonUnfold(squares, money, coin, tree, beach, ocean, wall, gridWidth, gridHeight, date, resources) {
+function seasonUnfold(squares, money, coin, tree, beach, ocean, wall, gridWidth, gridHeight, date, resources, attackBtn) {
   console.log('begin season')
   let attackSelection = [];
   calculateBeachRewards(squares, money, coin);
@@ -19,14 +19,13 @@ function seasonUnfold(squares, money, coin, tree, beach, ocean, wall, gridWidth,
     alert('hurricane year');
     attackSelection = border;
   } else {
-      for (let i = 0; i < 6; i++) {
+      for (let i = 0; i < 1; i++) {
         let randomNum = Math.random();
         if (randomNum <= dangerIndex) {
           attackSelection.push(border[Math.floor(Math.random() * border.length)]);
         }
       }
     }
-  
   
 
   for (let i = 0; i < attackSelection.length; i++) {
@@ -55,8 +54,9 @@ function seasonUnfold(squares, money, coin, tree, beach, ocean, wall, gridWidth,
 
     squares[id].classList.add('ocean-attack');
 
-    setTimeout(executeAttack, (i + 1) * 500, tree, beach, ocean, wall, attackedSquare, squares, id)
+    setTimeout(executeAttack, (i + 1) * 500, tree, beach, ocean, wall, attackedSquare, squares, id, attackSelection, i, attackBtn);
   }
+  if (attackSelection.length === 0) attackBtn.disabled = false;
   //findBorder(squares, gridWidth, gridHeight);
   year++;
   date.textContent = year;

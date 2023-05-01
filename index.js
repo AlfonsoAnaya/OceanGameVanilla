@@ -84,6 +84,7 @@ attackBtn.addEventListener("click", () => seasonUnfold(
 */
 
 attackBtn.addEventListener('click', () => {
+  attackBtn.disabled = true;
   reconstruct(squares, beach, gridWidth, gridHeight);
   setTimeout(seasonUnfold, 1000, 
     squares,
@@ -96,7 +97,8 @@ attackBtn.addEventListener('click', () => {
     gridWidth,
     gridHeight,
     date,
-    resources);
+    resources,
+    attackBtn);
   /*seasonUnfold(
     squares,
     money,

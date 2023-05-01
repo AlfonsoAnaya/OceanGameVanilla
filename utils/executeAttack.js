@@ -1,4 +1,4 @@
-export function executeAttack(tree, beach, ocean, wall, attackedSquare, squares, id) {
+export function executeAttack(tree, beach, ocean, wall, attackedSquare, squares, id, attackSelection, i, attackBtn) {
     if (attackedSquare.classList.contains('house')) {
       attackedSquare.classList.remove('house');
       attackedSquare.classList.add('tree');
@@ -21,4 +21,8 @@ export function executeAttack(tree, beach, ocean, wall, attackedSquare, squares,
         attackedSquare.textContent = beach;
       }
     squares[id].classList.remove('ocean-attack');
+    console.log(attackSelection.length, i+1)
+    if (attackSelection.length === i+1) {
+      attackBtn.disabled = false
+    }
   }
