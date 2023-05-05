@@ -1,13 +1,23 @@
+:root {
+    --color-primary: rgb(111, 111, 229);
+    --color-white: rgb(243, 235, 235);
+    --font-title: 'Fredoka One', sans-serif;
+    --font-secondary: 'Signika', sans-serif;
+}
+
 body {
     margin: 0;
-    background-color: rgb(243, 235, 235);
+    background-color: var(--color-white);
 }
 
 h1 {
     margin: 0;
+    font-family: var(--font-title);
+    font-size: 2.5em;
     text-align: center;
-    color: rgb(111, 111, 229);
-    margin-bottom: .5em;
+    color: var(--color-primary);
+    margin-bottom: .3em;
+    margin-top: .3em;
 }
 
 .scoreboard {
@@ -15,6 +25,16 @@ h1 {
     display: flex;
     justify-content: center;
     gap: 2em;
+    align-items: center;
+    margin-top: .1em;
+    margin-bottom: .1em;
+}
+
+.year {
+    font-family: var(--font-secondary);
+    color: var(--color-primary);
+    font-size: 1.2em;
+    font-weight: bold;
 }
 
 .scoreboard>p {
@@ -35,7 +55,7 @@ h1 {
 .square {
     width: 40px;
     height: 40px;
-    border: 1.5px solid white;
+    border: 1.5px solid var(--color-white);
     box-sizing: border-box;
     display: flex;
     justify-content: center;
@@ -88,8 +108,8 @@ h1 {
     padding: .75em 1.5em;
     border: 2px solid transparent;
     border-radius: 1em;
-    background-color: rgb(111, 111, 229);
-    color: rgb(243, 235, 235);
+    background-color: var(--color-primary);
+    color: var(--color-white);
     font-weight: 700;
     font-size: 1em;
     transition: ease-in .15s;
@@ -97,9 +117,9 @@ h1 {
 
 .btn:hover {
     cursor: pointer;
-    color: rgb(111, 111, 229);
-    background-color: rgb(243, 235, 235);
-    border: solid 2px rgb(111, 111, 229);
+    color: var(--color-primary);
+    background-color: var(--color-white);
+    border: solid 2px var(--color-primary);
     transform: scale(1.05)
 }
 
