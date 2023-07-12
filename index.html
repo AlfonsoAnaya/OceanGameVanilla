@@ -14,6 +14,46 @@
 
         <div class="grid" id="grid"></div>
         <button id="attack-btn" class="btn">New Season</button>
+        <div class="game-instructions" id="game-instructions">
+            <h2>How to play</h2>
+            <p>
+                As climate change worsens not only will ocean levels rise, but the risk of destructive weather events, such as
+                hurricanes, increases.
+            </p>
+            <p>
+                In this game, the goal is to prepare for an ever increasing ocean threat and prevent the destruction of 
+                the houses 🏠 in the map</p>
+            <p>
+                To protect your houses from the ocean you can build infrastructure to better withstand an "attack" from the 
+                ocean. If you have money in your account 🪙, you can click on any ground square to strengthen your 
+                infrastructure. It costs one coin 🪙 to make any one improvement: 
+                <br> beach 🏖️ -> tree 🌳 -> wall 🧱 -> crane 🏗️
+                <br> Whenever a ground square gets attacked by an adjacent ocean square the ground infrastructure worsens. 
+                Importantly whenever a 🏖️ gets hit by the ocean that square turns into ocean 🌊. The downgrade in 
+                infrastructure follows the improvment sequence in reverse order:
+                <br> 🧱 ->  🌳 ->  🏖️ ->  🌊
+                <br> With the exception of the crane, which immediately turns into beach when attacked:
+                <br> 🏗️->  🏖️
+            </p>
+            <p>
+                🏖️ and 🏗️ squares have special properties. 
+                <br>For every two 🏖️ you get one coin at the beginning of the season,
+                but be careful! Beaches can easily turn into ocean!
+                <br>If you want to reclaim terrain from the sea you can construct a crane in a square adjacent to 
+                the ocean. At the begginning of each season there is a 33% chance that a ocean square adjacent to a
+                crane is turned into a beach. But be careful! Each crane is costly to construct and a single ocean attack
+                turnst it into a 🏖️.
+            </p>
+        </div>
+        <!--let coin = "🪙";
+let money = [coin, coin, coin];
+
+let ocean = "🌊";
+let tree = "🌳";
+let beach = "🏖️";
+let house = "🏠";
+let wall = "🧱";
+let crane = "🏗️"; -->
         <script type="module" src="index.js"></script>
     </body>
 </html>

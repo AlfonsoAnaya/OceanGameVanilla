@@ -5,6 +5,15 @@ import { executeAttack } from "./executeAttack.js";
 let year = 2023;
 let isHurricaneYear = false;
 
+function checkGameOver(arr) {
+  console.log('checking if lost')
+  if (arr.find(square => square.classList.contains('house'))) {
+    return
+  } else {
+    alert("You've lost");
+  }
+}
+
 function seasonUnfold(squares, money, coin, tree, beach, ocean, wall, gridWidth, gridHeight, date, resources, attackBtn) {
   console.log('begin season')
   let attackSelection = [];
@@ -58,11 +67,22 @@ function seasonUnfold(squares, money, coin, tree, beach, ocean, wall, gridWidth,
   }
   if (attackSelection.length === 0) attackBtn.disabled = false;
   //findBorder(squares, gridWidth, gridHeight);
+  if (isHurricaneYear) {
+    setTimeout(() => {
+      checkGameOver(squares)
+    }, 5000);
+  } else {
+    setTimeout(() => {
+      checkGameOver(squares)
+    }, 3000);
+  }
+
   year++;
   date.textContent = year;
   money.push(coin);
   resources.textContent = money.join(" ");
   isHurricaneYear = false;
+
 }
 
 export {seasonUnfold, year}

@@ -151,6 +151,15 @@ h1 {
     animation-iteration-count: 1;
 }
 
+h2 {
+    text-align: center;
+}
+
+.game-instructions {
+    margin: 0 auto;
+    max-width: 60%;
+}
+
 @keyframes attack {
     0% {
         background-color: rgb(223, 135, 135);
