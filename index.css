@@ -152,12 +152,18 @@ h1 {
 }
 
 h2 {
+    margin-top: 2em;
     text-align: center;
 }
 
 .game-instructions {
     margin: 0 auto;
-    max-width: 60%;
+    width: 40%;
+    font-family: var(--font-secondary);
+    line-height: 1.5;
+}
+.center {
+    text-align: center;
 }
 
 @keyframes attack {
