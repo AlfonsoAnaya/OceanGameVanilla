@@ -26,28 +26,60 @@
         </p>
         <p>
             In this game, the goal is to prepare for an ever increasing ocean threat and prevent the destruction of
-            the houses 🏠 in the map</p>
+            the houses 🏠 in the map. You win by reaching the year 2100 with both houses intact.</p>
+        <h3>1</h3>
         <p>
             To protect your houses from the ocean you can build infrastructure to better withstand an "attack" from the
             ocean. If you have money in your account 🪙, you can click on any ground square to strengthen your
-            infrastructure. It costs one coin 🪙 to make any one improvement:</p>
-        <p class="center">beach 🏖️ → tree 🌳 → wall 🧱 → crane 🏗️</p>
+            infrastructure. It costs one coin 🪙 to make any one improvement:
         </p>
-        Whenever a ground square gets attacked by an adjacent ocean square the ground infrastructure worsens.
-        Importantly whenever a 🏖️ gets hit by the ocean that square turns into ocean 🌊. The downgrade in
-        infrastructure follows the improvment sequence in reverse order:
-        <p class="center">🧱 → 🌳 → 🏖️ → 🌊</p>
-        <p>With the exception of the crane, which immediately turns into beach when attacked:</p>
-        <p class="center">🏗️→ 🏖️</p>
-        
+        <p class="center">
+            beach 🏖️ → tree 🌳 → wall 🧱 → crane 🏗️
+        </p>
         <p>
-            🏖️ and 🏗️ squares have special properties.</p>
-            <p>For every two 🏖️ you get one coin at the beginning of the season,
-            but be careful! Beaches can easily turn into ocean!</p>
-            <p>If you want to reclaim terrain from the sea you can construct a crane in a square adjacent to
+            Whenever a ground square gets attacked by an adjacent ocean square the ground infrastructure worsens.
+            Importantly whenever a 🏖️ gets hit by the ocean that square turns into ocean 🌊. The downgrade in
+            infrastructure follows the improvment sequence in reverse order:
+        </p>
+        <p class="center">
+            🧱 → 🌳 → 🏖️ → 🌊
+        </p>
+        <p>With the exception of the crane, which immediately turns into beach when attacked:</p>
+        <p class="center">
+            🏗️→ 🏖️
+        </p>
+        <h3>2</h3>
+        <p>
+            🏖️ and 🏗️ squares have special properties.
+        </p>
+        <p>
+            For every two 🏖️ you get one coin at the beginning of the season,
+            but be careful! Beaches can easily turn into ocean!
+        </p>
+        <p>
+            If you want to reclaim terrain from the sea you can construct a crane in a square adjacent to
             the ocean. At the begginning of each season there is a 33% chance that a ocean square adjacent to a
             crane is turned into a beach. But be careful! Each crane is costly to construct and a single ocean attack
             turnst it into a 🏖️.
+        </p>
+        <p>
+            If a crane is no longer useful because all adjacent squares are solid ground, you can sell it for one coin by 
+            clicking on it.
+        </p>
+        <h3>3</h3>
+        <p>
+            Every season, the ocean will attack the coast. An ocean square can attack any adjacent coast square.
+            But the strength of the attack changes from year to year.
+            Also, there are normal years and hurricane years.
+        </p>
+        <p>
+            In a normal year, there are from 0 (if you're lucky) to 6 random ocean squares that will attack the coast. 
+            It is possible for the same coast square to be attacked by the ocean on multiple directions. 
+        </p>
+        <p>
+            In a hurricane year all ocean squares adjacent to the land will attack the land. Each decade the probability
+            that a year is a hurricane year increases. In the 2020s the probability is 14%. By the 2090s the probability
+            is 19%.
         </p>
     </div>
     <!--let coin = "🪙";
@@ -59,6 +91,7 @@ let beach = "🏖️";
 let house = "🏠";
 let wall = "🧱";
 let crane = "🏗️"; -->
-        <script type="module" src="index.js"></script>
-    </body>
+    <script type="module" src="index.js"></script>
+</body>
+
 </html>

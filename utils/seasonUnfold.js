@@ -15,13 +15,12 @@ function checkGameOver(arr) {
 }
 
 function seasonUnfold(squares, money, coin, tree, beach, ocean, wall, gridWidth, gridHeight, date, resources, attackBtn) {
-  console.log('begin season')
   let attackSelection = [];
   calculateBeachRewards(squares, money, coin);
 
   findBorder(squares, gridWidth, gridHeight);
 
-  let dangerIndex = .5 + (Math.floor((year-2000)/10)/30)
+  let dangerIndex = .65 + (Math.floor((2090-2000)/10)/30)
   if (Math.random() <= dangerIndex/5) isHurricaneYear = true;
 
   if (isHurricaneYear) {

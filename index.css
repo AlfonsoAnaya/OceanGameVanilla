@@ -8,6 +8,7 @@
 body {
     margin: 0;
     background-color: var(--color-white);
+
 }
 
 h1 {
@@ -124,6 +125,30 @@ h1 {
 }
 
 
+/* === INSTRUCTIONS ====*/
+h2 {
+    margin-top: 2em;
+}
+
+h2, h3 {
+    text-align: center;
+    color: var(--color-primary);
+}
+
+.game-instructions {
+    margin: 0 auto;
+    width: 40%;
+    min-width: 350px;
+    font-family: var(--font-secondary);
+    line-height: 1.5;
+    padding-bottom: 4em;
+    color: rgb(0, 0, 0,.8);
+}
+.center {
+    text-align: center;
+}
+
+
 /* === ANIMATIONS ====*/
 .ocean {
     animation:
@@ -149,21 +174,6 @@ h1 {
     animation-duration: 2s;
     animation-timing-function: linear;
     animation-iteration-count: 1;
-}
-
-h2 {
-    margin-top: 2em;
-    text-align: center;
-}
-
-.game-instructions {
-    margin: 0 auto;
-    width: 40%;
-    font-family: var(--font-secondary);
-    line-height: 1.5;
-}
-.center {
-    text-align: center;
 }
 
 @keyframes attack {
