@@ -2,16 +2,15 @@ import { calculateBeachRewards } from "./calculateBeachRewards.js"
 import { border, findBorder } from "./findBorder.js";
 import { executeAttack } from "./executeAttack.js";
 
-let year = 2023;
+let year = 2099;
 let isHurricaneYear = false;
 
 function checkGameOver(arr) {
-  console.log('checking if lost')
   if (arr.find(square => square.classList.contains('house'))) {
-    return
   } else {
-    alert("You've lost");
+    return alert("You've lost");
   }
+  if (year === 2100) return alert("Congrats, you've won!")
 }
 
 function seasonUnfold(squares, money, coin, tree, beach, ocean, wall, gridWidth, gridHeight, date, resources, attackBtn) {
