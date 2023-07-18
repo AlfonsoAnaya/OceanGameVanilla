@@ -1,6 +1,7 @@
 export function upgradeSquareListeners(squares, money, wall, tree, crane, resources, coin) {
     for (let square of squares) {
-        square.addEventListener("click", function (e) {
+        square.oncontextmenu = (e) => {
+            e.preventDefault();
             if (square.classList.contains("crane")) {
                 money.push(coin);
                 resources.textContent = money.join(" ");
@@ -9,6 +10,8 @@ export function upgradeSquareListeners(squares, money, wall, tree, crane, resour
                 square.textContent = tree;
                 return;
             }
+        };
+        square.addEventListener("click", function (e) {
             if (money.length === 0) {
                 return;
             }
@@ -19,7 +22,7 @@ export function upgradeSquareListeners(squares, money, wall, tree, crane, resour
                 square.classList.add('tree');
                 square.textContent = tree;
                 return;
-            }  
+            }
             if (square.classList.contains('tree')) {
                 money.pop();
                 resources.textContent = money.join(" ");
@@ -27,7 +30,7 @@ export function upgradeSquareListeners(squares, money, wall, tree, crane, resour
                 square.classList.add('wall');
                 square.textContent = wall;
                 return;
-            } 
+            }
             if (square.classList.contains('wall')) {
                 money.pop();
                 resources.textContent = money.join(" ");
@@ -39,3 +42,4 @@ export function upgradeSquareListeners(squares, money, wall, tree, crane, resour
         });
     }
 }
+
